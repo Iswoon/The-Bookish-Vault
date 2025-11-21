@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>The Romantasy Vault 🌙</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='romantasy.css') }}">
+
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Playfair+Display:wght@500;700&family=Great+Vibes&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Door Animation -->
+  <div id="door">
+    <div class="door-left"></div>
+    <div class="door-right"></div>
+  </div>
+
+  <!-- Floating sparkle background -->
+  <div class="stars"></div>
+  <div class="stars2"></div>
+
+  <!-- Main Vault Content -->
+  <div class="vault-container">
+    <div class="glow"></div>
+    <h1>🌙 The Romantasy Vault 🌙</h1>
+    <p class="intro">“Where hearts entwine with destiny, and love burns brighter than magic.”</p>
+
+    <div class="content">
+      <p>
+        Welcome, wanderer of realms. Here, love is forged in prophecy and peril — between fae lords and mortal hearts,
+        warriors and witches, and those who’d rather die together than live apart.
+      </p>
+
+      <h2 class="rec-title">💫 The Tome of Enchanted Love 💫</h2>
+      <div class="book-grid">
+
+        <div class="book-card">
+          <h3>A Court of Thorns and Roses</h3>
+          <p><strong>Author:</strong> Sarah J. Maas</p>
+          <p>Fae politics, forbidden love, and a mortal huntress who walks into a curse — and into destiny.</p>
+        </div>
+
+        <div class="book-card">
+          <h3>Fourth Wing</h3>
+          <p><strong>Author:</strong> Rebecca Yarros</p>
+          <p>Dragon riders, sizzling tension, and the fine line between love and war. A romantasy that soars and scars.</p>
+        </div>
+
+        <div class="book-card">
+          <h3>Divine Rivals</h3>
+          <p><strong>Author:</strong> Rebecca Ross</p>
+          <p>Two rival journalists in a world at war — exchanging letters that might just change everything.</p>
+        </div>
+
+        <div class="book-card">
+          <h3>From Blood and Ash</h3>
+          <p><strong>Author:</strong> Jennifer L. Armentrout</p>
+          <p>A maiden chosen by the gods, a forbidden guard, and a slow-burn love amidst betrayal and destiny.</p>
+        </div>
+
+        <div class="book-card">
+          <h3>The Night Circus</h3>
+          <p><strong>Author:</strong> Erin Morgenstern</p>
+          <p>Two powerful magicians — Celia and Marco — are bound from childhood to a mysterious game orchestrated by their equally enigmatic and morally grey mentors.</p>
+        </div>
+
+        <div class="book-card">
+          <h3>The Serpent and the Wings of Night</h3>
+          <p><strong>Author:</strong> Carissa Broadbent</p>
+          <p>A deadly vampire tournament, an unlikely alliance, and a romance that defies gods and monsters alike.</p>
+        </div>
+
+      </div>
+
+      <a href="{{ url_for('homepage') }}" class="home-btn">Return to the Vault Entrance</a>
+
+    </div>
+  </div>
+
+  <audio autoplay loop>
+    <source src="sounds/romantasy-theme.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    window.addEventListener("load", () => {
+      const door = document.getElementById("door");
+      setTimeout(() => door.classList.add("open"), 1000);
+      setTimeout(() => door.classList.add("fade-out"), 4000);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,149 @@
+body {
+  margin: 0;
+  font-family: 'Marcellus', serif;
+  color: #2e1d0b;
+  background: radial-gradient(ellipse at top, #f5e6c5, #c4a77d 80%);
+  overflow-x: hidden;
+}
+
+/* Door Animation */
+#door {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  z-index: 10;
+  transition: opacity 2s ease;
+}
+
+.door-left, .door-right {
+  flex: 1;
+  background: linear-gradient(to right, #b09060, #7a5b34);
+  transition: transform 2s ease-in-out;
+  box-shadow: inset 0 0 60px rgba(60, 40, 10, 0.6);
+}
+
+#door.open .door-left { transform: translateX(-100%); }
+#door.open .door-right { transform: translateX(100%); }
+#door.fade-out { opacity: 0; pointer-events: none; }
+
+/* Dust particles */
+.dust, .dust2 {
+  position: absolute;
+  width: 100%; height: 100%;
+  background: radial-gradient(circle, rgba(255,255,255,0.15) 1%, transparent 80%);
+  animation: driftDust 25s infinite linear;
+  opacity: 0.2;
+  z-index: 0;
+}
+@keyframes driftDust {
+  from { transform: translateY(0); }
+  to { transform: translateY(-100px); }
+}
+
+/* Container */
+.vault-container {
+  position: relative;
+  padding: 80px 20px;
+  text-align: center;
+  z-index: 1;
+}
+
+.glow {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: radial-gradient(circle at center, rgba(255,240,200,0.1), transparent 80%);
+  z-index: -1;
+}
+
+/* Titles */
+h1 {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 3rem;
+  color: #5e3b18;
+  text-shadow: 0 0 20px rgba(255, 255, 200, 0.3);
+  letter-spacing: 1px;
+}
+
+.intro {
+  font-style: italic;
+  color: #4b3115;
+  margin-bottom: 40px;
+  font-size: 1.1rem;
+}
+
+/* Book Grid */
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  justify-items: center;
+  max-width: 1100px;
+  margin: 40px auto;
+}
+
+.book-card {
+  background: rgba(255, 255, 240, 0.85);
+  border: 1px solid rgba(90, 60, 20, 0.3);
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 320px;
+  text-align: left;
+  box-shadow: 0 0 15px rgba(80, 60, 20, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+
+  /* 🧩 Prevent layout reflow on hover */
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.book-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255, 250, 200, 0.2), transparent);
+  transition: all 0.4s;
+  pointer-events: none;
+}
+
+.book-card:hover::before {
+  left: 100%;
+}
+
+.book-card:hover {
+  box-shadow: 0 0 25px rgba(200, 180, 100, 0.4);
+  transform: translate3d(0, -6px, 0); /* 🚀 GPU-accelerated motion */
+}
+
+
+/* Responsive */
+@media (max-width: 900px) {
+  .book-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .book-grid { grid-template-columns: 1fr; }
+}
+
+/* Button */
+.home-btn {
+  background: linear-gradient(90deg, #b48a4e, #d8b97a);
+  color: #3a260f;
+  border: none;
+  border-radius: 25px;
+  padding: 12px 28px;
+  margin-top: 50px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+.home-btn:hover {
+  background: linear-gradient(90deg, #d8b97a, #f0e0a3);
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(255, 240, 200, 0.4);
+}

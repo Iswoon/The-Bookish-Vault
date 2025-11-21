@@ -1,0 +1,148 @@
+body {
+  margin: 0;
+  font-family: 'Playfair Display', serif;
+  color: #f4e9ff;
+
+  /* ✨ Your static background image */
+  background-image: url('./img/planets.jpg');
+  background-size: cover;          /* makes it fill the screen */
+  background-repeat: no-repeat;    /* no ugly tiling */
+  background-position: center;     /* keeps it nicely centered */
+  background-attachment: scroll;    /* optional: keeps it still while scrolling */
+
+  overflow-y: auto;
+}
+
+
+html, body {
+  height: auto;
+  min-height: 100%;
+  overflow-y: auto;
+}
+
+/* Door Animation */
+#door {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  z-index: 5;
+  transition: transform 2s ease, opacity 2s ease;
+}
+
+.door-left,
+.door-right {
+  flex: 1;
+  background: linear-gradient(to right, #2a0845, #6441a5);
+  border: 2px solid #b89fff;
+  transition: transform 2s ease;
+}
+
+#door.open .door-left { transform: translateX(-100%); }
+#door.open .door-right { transform: translateX(100%); }
+#door.fade-out { opacity: 0; }
+
+/* Starry Background */
+.stars, .stars2 {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-image: url('./img/stars.png');
+  background-repeat: repeat;
+  background-size: 300px;
+  animation: floatStars 90s linear infinite;
+  opacity: 0.2;
+  z-index: 0;
+}
+.stars2 { animation-duration: 120s; opacity: 0.15; }
+
+@keyframes floatStars {
+  from { background-position: 0 0; }
+  to { background-position: 0 2000px; }
+}
+
+/* Vault Layout */
+.vault-container {
+  min-height: 100vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.vault-container .content {
+  max-width: 900px;
+  width: 100%;
+}
+
+/* Titles */
+h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 3em;
+  color: #a5c9ff;
+  text-shadow: 0 0 15px #6b95ff;
+}
+
+.intro {
+  font-style: italic;
+  color: #a9bde8;
+  margin-bottom: 25px;
+}
+
+/* Book Grid */
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  margin-top: 40px;
+  justify-items: center;
+}
+
+/* Book Cards */
+.book-card {
+  background: rgba(12, 10, 60, 0.9);
+  border: 1px solid #6685ff;
+  border-radius: 12px;
+  padding: 20px;
+  max-width: 300px;
+  width: 100%;
+  box-shadow: 0 0 15px rgba(102, 163, 255, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  color: #e8d6ff;
+}
+
+.book-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 25px rgba(210, 165, 255, 0.6);
+}
+
+.book-card h3 {
+  color: #bacaff;
+  font-family: 'Cinzel', serif;
+  margin-bottom: 10px;
+}
+
+.book-card p strong {
+  color: #8aa1ff;
+}
+
+/* Buttons */
+.home-btn {
+  background-color: #6ba6ff;
+  border: none;
+  padding: 12px 25px;
+  font-size: 16px;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(107, 119, 255, 0.6);
+  transition: background-color 0.3s ease;
+}
+
+.home-btn:hover {
+  background-color: #9ab7ff;
+}

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>The Dark Academia Vault ☕</title>
+  <link href="darkacademia.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Marcellus&family=Crimson+Text:ital,wght@0,400;1,600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Door Animation -->
+  <div id="door">
+    <div class="door-left"></div>
+    <div class="door-right"></div>
+  </div>
+
+  <!-- Candlelight Flicker Overlay -->
+<div class="candle-flicker"></div>
+
+  <!-- Main Content -->
+  <div class="vault-container">
+    <h1>☕ The Dark Academia Vault ☕</h1>
+    <p class="intro">“Knowledge is beautiful, but obsession is divine.”</p>
+
+    <div class="content">
+      <p>
+        Welcome, scholar. Here, candlelight flickers across old tomes, secrets hide in the margins, and ambition whispers like a curse.
+        Step carefully — genius always demands a price.
+      </p>
+
+      <h2 class="rec-title">📜 The Library of Shadows 📜</h2>
+      <div class="book-grid">
+
+        <div class="book-card">
+          <h3>The Secret History</h3>
+          <p><strong>Author:</strong> Donna Tartt</p>
+          <p>The quintessential dark academia tale — beauty, intellect, and the slow unraveling of morality among a group of elite students.</p>
+        </div>
+
+        <div class="book-card">
+          <h3>Babel</h3>
+          <p><strong>Author:</strong> R.F. Kuang</p>
+          <p>Language is magic, empire is cruelty, and knowledge can destroy. A masterpiece of academia, rebellion, and power.</p>
+        </div>
+
+        <div class="book-card">
+          <h3>All of Us Villains</h3>
+          <p><strong>Authors:</strong> Amanda Foody & Christine Lynn Herman</p>
+          <p>Seven families. One deadly tournament. Magic, ambition, and bloodlust collide in a tale where no one leaves clean.</p>
+        </div>
+
+        <div class="book-card">
+          <h3>The Atlas Six</h3>
+          <p><strong>Author:</strong> Olivie Blake</p>
+          <p>Six brilliant magicians. One secret society. Knowledge is the key — and betrayal is inevitable.</p>
+        </div>
+
+        <div class="book-card">
+          <h3>Masters of Death</h3>
+          <p><strong>Author:</strong> Olivie Blake</p>
+          <p>When Death himself needs help, chaos ensues. Supernatural beings, existential humor, and aching immortality.</p>
+        </div>
+
+        <div class="book-card">
+          <h3>Bunny</h3>
+          <p><strong>Author:</strong> Mona Awad</p>
+          <p>A surreal, grotesque, and hilarious descent into the madness of female friendships and the creative mind.</p>
+        </div>
+
+      </div>
+
+      <a href="{{ url_for('homepage') }}" class="home-btn">Return to the Vault Entrance</a>
+
+    </div>
+  </div>
+
+  <audio autoplay loop>
+    <source src="sounds/darkacademia-theme.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    window.addEventListener("load", () => {
+      const door = document.getElementById("door");
+
+      setTimeout(() => door.classList.add("open"), 1000);
+      setTimeout(() => door.classList.add("fade-out"), 4000);
+    });
+  </script>
+</body>
+</html>

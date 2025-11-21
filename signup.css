@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel&family=Lora&display=swap');
+
+/* === Header === */
+.header {
+  text-align: center;
+  padding: 30px 0;
+  background:linear-gradient(to top, #ffded3, #ffe5e5);
+  box-shadow: 0 4px 6px rgb(244, 208, 184);
+}
+
+.website-title {
+  font-family: 'Cinzel', serif;
+  font-size: 5rem;
+  z-index:10;
+  color: #c8aa6e;
+  letter-spacing: 2px;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+  from{
+    text-shadow: 0 0 10px #cca38e, 0 0 20px #ffcda6, 0 0 30px #ffe1d3,
+  0 0 40px #ffe9a9, 0 0 50px #ffdb67, 0 0 60px #ffdb67, 0 0 70px #ffeeee;
+  }
+  to {
+    text-shadow: 0 0 20px #ffcda6, 0 0 30px #ffe1d3,
+  0 0 40px #ffe9a9, 0 0 50px #afa790, 0 0 60px #ffe3c9, 0 0 70px #eac2c2, 0 0 80px #ff4da6;
+  }
+}
+
+/* === Signup Box === */
+.signup-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+}
+
+.signup-box {
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid #ffdb67;
+  box-shadow: 0 0 10px rgb(182, 182, 182);
+  padding: 40px;
+  border-radius: 10px;
+  max-width: 450px;
+  width: 100%;
+}
+
+.signup-box h1 {
+  font-family: 'Cinzel', serif;
+  color: #d1ad38;
+  margin-bottom: 20px;
+}
+
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  background-color: #f8f3e6;
+  border: 1px solid #ffdb67;
+  border-radius: 5px;
+  font-family: 'Lora', serif;
+}
+
+button {
+  background-color: #6f858e;
+  color: #ffffff;
+  font-family: 'Cinzel', serif;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  text-transform: uppercase;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  background-color: #a18f3c;
+  box-shadow: 0 0 10px rgb(255, 248, 209);
+}
+
+a {
+  color: #e8c751;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* === Signup === */
+
+body {
+  margin: 0;
+  font-family: 'Lora', serif;
+  background: linear-gradient(to top, #FFDEE9, #FFB3A0);
+  color: #1e1e1e;
+}
+/* === typing animation === */
+
+.typewriter {
+  width: fit-content;
+  margin: 20px auto;
+  color: #c8aa6e;
+  font-size: 1.1rem;
+  font-family: 'Cormorant Garamond', serif;
+  border-right: 2px solid #c8aa6e;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: typing 4s steps(45,end), blink 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 30% }
+}
+
+@keyframes blink {
+  from, to { border-color: transparent }
+  50% { border-color: #c8aa6e; }
+}
+
+/* === Sun === */
+.sun {
+  position: absolute;
+  top: 15%;
+  left: -100px;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, #FFD9A0, #FFB3A0);
+  border-radius: 50%;
+  box-shadow:
+    0 0 20px #FFD9A0,
+    0 0 40px #FFB3A0,
+    0 0 80px #FF9EC4;
+  animation: driftSunArc 15s linear infinite;
+  z-index: 0; /* so it can go behind text */
+}
+
+@keyframes driftSunArc {
+  0% { transform: translate(0,50px); }
+  25% { transform: translate(30vw,-50px); }/*rising*/
+  50% {transform: translate(60vw, -100px);}/*peak*/
+  75%{transform:  translate(90vw, -50px);} /*setting*/
+  100%{transform: translate(120vw, 50px);}/*disappears*/
+}

@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Quiz - The Bookish Vault</title>
+  <link href="{{ url_for('static', filename='quizpage.css') }}" rel="stylesheet">
+</head>
+<body>
+  <div class="quiz-container">
+    <div class="progress">Question 1 of 8</div>
+    <div class="question">Loading question...</div>
+    <div class="options"></div>
+    <button id="next-btn">Next</button>
+  </div>
+
+  <!-- Vault Reveal Placeholder -->
+  <div id="vault" style="display:none; text-align:center; margin-top:50px;">
+    <h1 class="vault-result"></h1>
+  </div>
+
+<script>
+const questions = [
+  {
+    q: "What kind of door are you most drawn to?",
+    options: [
+      { text: "An old wooden door with runes etched into it", genre: "Fantasy" },
+      { text: "A towering iron gate covered in ivy", genre: "Dark Academia" },
+      { text: "A rose-covered archway with soft light behind it", genre: "Romance" },
+      { text: "A plain but locked door with a faint scratch near the handle", genre: "Mystery" },
+      { text: "A pastel-painted café door with a golden bell", genre: "Literary Fiction" },
+      { text: "A creaky door that opens into a candlelit room of old letters", genre: "Historical Fiction" },
+      { text: "A door that appears where there wasn’t one before", genre: "Magical Realism" },
+      { text: "A door with dark stains you’d rather not question", genre: "Horror" },
+      { text: "A gilded door glowing under starlight", genre: "Romantasy" },
+      { text: "A glass door leading to a futuristic skyline", genre: "Sci-Fi" }
+    ]
+  },
+  {
+    q: "Which weather feels most like you?",
+    options: [
+      { text: "Crisp fog curling over cobblestone streets", genre: "Dark Academia" },
+      { text: "Heavy rain that drowns out every sound", genre: "Mystery" },
+      { text: "Bright sunlight warming the pages of a book", genre: "Literary Fiction" },
+      { text: "A sudden thunderstorm flashing in violet skies", genre: "Fantasy" },
+      { text: "A gentle snowfall that muffles the world", genre: "Historical Fiction" },
+      { text: "A shimmering aurora over a futuristic city", genre: "Sci-Fi" },
+      { text: "A star-filled night with air that tastes like magic", genre: "Romantasy" },
+      { text: "A golden hour breeze that feels like a soft confession", genre: "Romance" },
+      { text: "A hot wind carrying the smell of something burning", genre: "Horror" },
+      { text: "A still summer day where the air feels charged with secrets", genre: "Magical Realism" }
+    ]
+  },
+  {
+    q: "Your dream journal entry starts with…",
+    options: [
+      { text: "I opened a door and the impossible waited beyond.", genre: "Fantasy" },
+      { text: "I kept noticing the same shadow following me.", genre: "Mystery" },
+      { text: "Someone smiled at me like they’d known me forever.", genre: "Romance" },
+      { text: "The city lights blinked like circuits under my feet.", genre: "Sci-Fi" },
+      { text: "I found a letter hidden in an ancient manuscript.", genre: "Historical Fiction" },
+      { text: "I walked the corridors of a school that seemed alive.", genre: "Dark Academia" },
+      { text: "Time paused and the world glimmered with magic.", genre: "Romantasy" },
+      { text: "The streets were empty, but shadows whispered.", genre: "Horror" },
+      { text: "A feather floated down in the middle of the city.", genre: "Magical Realism" },
+      { text: "I sipped coffee and watched the world slowly unfold.", genre: "Literary Fiction" }
+    ]
+  },
+  {
+    q: "You stumble upon an old locked chest. What’s your move?",
+    options: [
+      { text: "Try the key you didn’t know you had", genre: "Fantasy" },
+      { text: "Inspect the hinges for hidden clues", genre: "Mystery" },
+      { text: "Wonder who left it and why it feels personal", genre: "Romance" },
+      { text: "Wonder if the lock mechanism has a code you can crack", genre: "Sci-Fi" },
+      { text: "Examine the seals and faded inscriptions", genre: "Historical Fiction" },
+      { text: "See if it aligns with symbols from the secret library", genre: "Dark Academia" },
+      { text: "Feel the chest hum with unseen energy", genre: "Romantasy" },
+      { text: "Step back cautiously; something feels wrong", genre: "Horror" },
+      { text: "Touch it and notice the world subtly changes", genre: "Magical Realism" },
+      { text: "Note the craftsmanship and the story it hints at", genre: "Literary Fiction" }
+    ]
+  },
+  {
+    q: "What phrase speaks to you the most?",
+    options: [
+      { text: "The stars hold secrets we’ve yet to name.", genre: "Fantasy" },
+      { text: "Every answer hides behind another question.", genre: "Mystery" },
+      { text: "Love leaves traces no one can erase.", genre: "Romance" },
+      { text: "Tomorrow belongs to the ones who invent it.", genre: "Sci-Fi" },
+      { text: "History whispers to those who listen.", genre: "Historical Fiction" },
+      { text: "Beauty is terror. Whatever we call beautiful, we quiver before it.", genre: "Dark Academia" },
+      { text: "You could rattle the stars… if only you dared.", genre: "Romantasy" },
+      { text: "Monsters are real, and ghosts are real too.", genre: "Horror" },
+      { text: "What matters is how you remember the world.", genre: "Magical Realism" },
+      { text: "The world breaks everyone and afterward many are strong.", genre: "Literary Fiction" }
+    ]
+  },
+  {
+    q: "Pick a candle to burn during a storm:",
+    options: [
+      { text: "Pine and mossy earth", genre: "Fantasy" },
+      { text: "Sweet rose & vanilla", genre: "Romance" },
+      { text: "Clean linen with a sharp hint of ink", genre: "Mystery" },
+      { text: "Metallic ozone and something you can’t quite name", genre: "Sci-Fi" },
+      { text: "Old books & ink", genre: "Dark Academia" },
+      { text: "Warm bread & nostalgia", genre: "Magical Realism" },
+      { text: "Smoke and iron", genre: "Horror" },
+      { text: "Leather and old maps", genre: "Historical Fiction" },
+      { text: "Sharp citrus and parchment", genre: "Literary Fiction" },
+      { text: "Salt and starlight", genre: "Romantasy" }
+    ]
+  },
+  {
+    q: "Your favorite part of a story is…",
+    options: [
+      { text: "The moment the world’s rules break", genre: "Fantasy" },
+      { text: "The reveal you never saw coming", genre: "Mystery" },
+      { text: "The slow burn that changes everything", genre: "Romance" },
+      { text: "The tech twist that blows your mind", genre: "Sci-Fi" },
+      { text: "The hidden letters and clues from the past", genre: "Historical Fiction" },
+      { text: "Intellectual duels and secret societies", genre: "Dark Academia" },
+      { text: "The magical spark that transforms love", genre: "Romantasy" },
+      { text: "Shivers that creep when the lights go out", genre: "Horror" },
+      { text: "Subtle gestures and layered meanings", genre: "Literary Fiction" },
+      { text: "The surreal moments that make you question reality", genre: "Magical Realism" }
+    ]
+  },
+  {
+    q: "If time stopped for an hour, what would you do?",
+    options: [
+      { text: "Wander and see if anything hidden reveals itself", genre: "Fantasy" },
+      { text: "Gather clues about what caused it", genre: "Mystery" },
+      { text: "Test what’s possible when the rules don’t apply", genre: "Sci-Fi" },
+      { text: "Find someone you care about and share the silence", genre: "Romance" },
+      { text: "Read every letter left by the past", genre: "Historical Fiction" },
+      { text: "Walk the library halls and solve puzzles", genre: "Dark Academia" },
+      { text: "Whisper to someone under moonlight", genre: "Romantasy" },
+      { text: "Stay in place, feeling the tension of unseen horrors", genre: "Horror" },
+      { text: "Notice the little magical changes around you", genre: "Magical Realism" },
+      { text: "Sit quietly and think about what matters", genre: "Literary Fiction" }
+    ]
+  },
+  {
+    q: "Pick an aesthetic you vibe with:",
+    options: [
+      { text: "Velvet armchairs, candlelight, and handwritten notes", genre: "Dark Academia" },
+      { text: "Neon lights, chrome, and endless cityscapes", genre: "Sci-Fi" },
+      { text: "Warm sunbeams and handwritten love letters", genre: "Romance" },
+      { text: "Glimmering swords and dragons soaring in twilight", genre: "Fantasy" },
+      { text: "Old film photographs and fragile pressed flowers", genre: "Literary Fiction" },
+      { text: "Foggy moors and flickering gas lamps", genre: "Mystery" },
+      { text: "Ink-stained fingers and Latin verses", genre: "Romantasy" },
+      { text: "Shadows dancing on cracked walls", genre: "Horror" },
+      { text: "Floating feathers and glowing constellations indoors", genre: "Magical Realism" },
+      { text: "Corsets and candle chandeliers in grand ballrooms", genre: "Historical Fiction" }
+    ]
+  },
+  {
+    q: "Your favorite time of day is…",
+    options: [
+      { text: "Dawn, when everything feels possible", genre: "Fantasy" },
+      { text: "Midnight, when secrets come alive", genre: "Dark Academia" },
+      { text: "Twilight, when colors melt into each other", genre: "Romance" },
+      { text: "The quiet hour before sunrise", genre: "Mystery" },
+      { text: "Golden hour, when nostalgia hangs in the air", genre: "Literary Fiction" },
+      { text: "Stormy afternoon with rain tapping windows", genre: "Horror" },
+      { text: "Night under glowing constellations", genre: "Magical Realism" },
+      { text: "Afternoon sunlight on historical streets", genre: "Historical Fiction" },
+      { text: "Late evening with a magical glow", genre: "Romantasy" },
+      { text: "Morning light over a tech-filled city", genre: "Sci-Fi" }
+    ]
+  },
+  {
+    q: "Choose a secret to keep:",
+    options: [
+      { text: "A hidden magical ability", genre: "Fantasy" },
+      { text: "A forbidden love", genre: "Romance" },
+      { text: "An unsolved mystery that could change everything", genre: "Mystery" },
+      { text: "A futuristic invention no one knows about", genre: "Sci-Fi" },
+      { text: "A historical truth that could rewrite history", genre: "Historical Fiction" },
+      { text: "An intellectual puzzle only you understand", genre: "Dark Academia" },
+      { text: "A love story only the stars witness", genre: "Romantasy" },
+      { text: "A terrifying truth you dare not tell", genre: "Horror" },
+      { text: "A surreal secret that bends reality", genre: "Magical Realism" },
+      { text: "A quiet observation about life", genre: "Literary Fiction" }
+    ]
+  },
+  {
+    q: "Pick a drink for a quiet evening:",
+    options: [
+      { text: "Mulled cider with spices", genre: "Fantasy" },
+      { text: "Black coffee in an empty library", genre: "Dark Academia" },
+      { text: "Hot chocolate with rose petals", genre: "Romance" },
+      { text: "Herbal tea with a twist of lemon", genre: "Romantasy" },
+      { text: "Wine with old letters at your side", genre: "Historical Fiction" },
+      { text: "Sparkling water in a neon-lit room", genre: "Sci-Fi" },
+      { text: "Red wine while solving a puzzle", genre: "Mystery" },
+      { text: "Warm milk to calm your nerves", genre: "Horror" },
+      { text: "Tea that smells faintly magical", genre: "Magical Realism" },
+      { text: "Green tea with soft music", genre: "Literary Fiction" }
+    ]
+  }
+];
+
+// Initialize scores for all 10 genres
+let scores = {
+  "Fantasy": 0,
+  "Mystery": 0,
+  "Romance": 0,
+  "Sci-Fi": 0,
+  "Historical Fiction": 0,
+  "Literary Fiction": 0,
+  "Horror": 0,
+  "Dark Academia": 0,
+  "Magical Realism": 0,
+  "Romantasy": 0
+};
+
+let currentQuestion = 0;
+let selectedGenre = null;
+
+const questionEl = document.querySelector(".question");
+const optionsEl = document.querySelector(".options");
+const progressEl = document.querySelector(".progress");
+const nextBtn = document.getElementById("next-btn");
+const vault = document.getElementById("vault");
+const vaultResult = document.querySelector(".vault-result");
+
+function loadQuestion() {
+  const q = questions[currentQuestion];
+  questionEl.textContent = q.q;
+  progressEl.textContent = `Question ${currentQuestion + 1} of ${questions.length}`;
+  optionsEl.innerHTML = "";
+
+  q.options.forEach(option => {
+    const div = document.createElement("div");
+    div.className = "option-card";
+    div.textContent = option.text;
+    div.onclick = () => {
+      document.querySelectorAll(".option-card").forEach(o => {
+        o.style.background = "#e3e1e1";
+        o.style.color = "#0A1D37";
+      });
+      div.style.background = "#001f32";
+      div.style.color = "#fff";
+      selectedGenre = option.genre;
+    };
+    optionsEl.appendChild(div);
+  });
+}
+
+nextBtn.onclick = () => {
+  if (!selectedGenre) {
+    alert("Please select an option before proceeding.");
+    return;
+  }
+  scores[selectedGenre]++;
+  selectedGenre = null;
+  currentQuestion++;
+  if (currentQuestion < questions.length) {
+    loadQuestion();
+  } else {
+    showResult();
+  }
+};
+
+function showResult() {
+  const topGenre = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
+
+  // Optional: little delay + reveal message before redirect
+  document.querySelector(".quiz-container").style.display = "none";
+  vault.style.display = "flex";
+  vaultResult.textContent = `Your perfect genre is: ${topGenre}! Unlocking your vault... 🔐`;
+
+  // After 2 seconds, redirect to the genre page
+    // After 2 seconds, redirect to the genre page
+  setTimeout(() => {
+    const genreRoutes = {
+      "Fantasy": "/result/fantasy",
+      "Mystery": "/result/mystery",
+      "Romance": "/result/romance",
+      "Sci-Fi": "/result/scifi",
+      "Historical Fiction": "/result/history",
+      "Literary Fiction": "/result/literary",
+      "Horror": "/result/horror",
+      "Dark Academia": "/result/darkacademia",
+      "Magical Realism": "/result/magicalrealism",
+      "Romantasy": "/result/romantasy"
+    };
+
+    const route = genreRoutes[topGenre] || "/";
+    window.location.href = route;
+  }, 2000);
+}
+
+// LOAD FIRST QUESTION
+loadQuestion();
+</script>
+
+
+</body>
+</html>

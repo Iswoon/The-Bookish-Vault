@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>The Historical Vault 🏛️</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='historical.css') }}">
+
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Marcellus&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Door Animation -->
+  <div id="door">
+    <div class="door-left"></div>
+    <div class="door-right"></div>
+  </div>
+
+  <!-- Subtle ambient particles -->
+  <div class="dust"></div>
+  <div class="dust2"></div>
+
+  <!-- Main Historical Vault Content -->
+  <div class="vault-container">
+    <div class="glow"></div>
+    <h1>📜 The Chronicle Vault 📜</h1>
+    <p class="intro">“History breathes in ink and whispers through time. Every tale is a key to our forgotten selves.”</p>
+
+    <div class="content">
+      <p>
+        Welcome, scholar. Step into the archives of memory where empires rose and fell, letters sealed destinies, and courage shaped civilizations. Here, past and prose intertwine.
+      </p>
+
+      <h2 class="rec-title">⟡ The Tome of Time ⟡</h2>
+
+      <div class="book-grid">
+
+        <div class="book-card">
+          <h3>The Pillars of the Earth</h3>
+          <p><strong>Author:</strong> Ken Follett</p>
+          <p>In medieval England, ambition and faith build cathedrals while betrayal and love test every soul beneath their stones.</p>
+        </div>
+
+        <div class="book-card">
+          <h3>Wolf Hall</h3>
+          <p><strong>Author:</strong> Hilary Mantel</p>
+          <p>Thomas Cromwell rises through Tudor England, maneuvering power and peril in the shadow of Henry VIII.</p>
+        </div>
+
+        <div class="book-card">
+          <h3>All the Light We Cannot See</h3>
+          <p><strong>Author:</strong> Anthony Doerr</p>
+          <p>A blind French girl and a German soldier’s fates entwine amid the ruins of World War II, bound by light unseen.</p>
+        </div>
+
+        <div class="book-card">
+          <h3>The Book Thief</h3>
+          <p><strong>Author:</strong> Markus Zusak</p>
+          <p>In Nazi Germany, a young girl steals words to survive—and Death itself narrates her defiance.</p>
+        </div>
+
+        <div class="book-card">
+          <h3>The Nightingale</h3>
+          <p><strong>Author:</strong> Kristin Hannah</p>
+          <p>Two sisters navigate love, sacrifice, and survival in occupied France during World War II.</p>
+        </div>
+
+        <div class="book-card">
+          <h3>A Tale of Two Cities</h3>
+          <p><strong>Author:</strong> Charles Dickens</p>
+          <p>“It was the best of times, it was the worst of times.” Love and revolution ignite in a world divided by justice and blood.</p>
+        </div>
+
+      </div>
+
+  <a href="{{ url_for('homepage') }}" class="home-btn">Return to the Vault Entrance</a>
+
+    </div>
+  </div>
+
+  <audio autoplay loop>
+    <source src="sounds/historical-theme.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    window.addEventListener("load", () => {
+      const door = document.getElementById("door");
+      setTimeout(() => { door.classList.add("open"); }, 1000);
+      setTimeout(() => { door.classList.add("fade-out"); }, 4000);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+body {
+  margin: 0;
+  font-family: 'Marcellus', serif;
+  color: #f5f3e7;
+  background: radial-gradient(ellipse at top, #1c0430, #090011 70%);
+  overflow-x: hidden;
+}
+
+/* Door Animation */
+#door {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  z-index: 10;
+  transition: opacity 2s ease;
+}
+
+.door-left, .door-right {
+  flex: 1;
+  background: linear-gradient(to right, #2e0a50, #4b197a);
+  transition: transform 2s ease-in-out;
+}
+
+#door.open .door-left { transform: translateX(-100%); }
+#door.open .door-right { transform: translateX(100%); }
+#door.fade-out { opacity: 0; pointer-events: none; }
+
+/* Stars */
+.stars, .stars2 {
+  position: absolute;
+  width: 2px; height: 2px;
+  background: white;
+  box-shadow: 200px 300px white, 400px 500px white, 600px 200px white, 800px 700px white, 1000px 100px white;
+  animation: twinkle 8s infinite linear;
+  opacity: 0.7;
+}
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+/* Container */
+.vault-container {
+  position: relative;
+  padding: 80px 20px;
+  text-align: center;
+  z-index: 1;
+}
+
+.glow {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.05), transparent 80%);
+  z-index: -1;
+}
+
+/* Titles */
+h1 {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 3rem;
+  letter-spacing: 2px;
+  text-shadow: 0 0 20px rgba(255, 230, 200, 0.6);
+}
+
+.intro {
+  font-style: italic;
+  color: #e7d8f9;
+  margin-bottom: 40px;
+  font-size: 1.1rem;
+}
+
+/* Book Grid */
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  justify-items: center;
+  max-width: 1100px;
+  margin: 40px auto;
+}
+
+.book-card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 230, 200, 0.2);
+  border-radius: 12px;
+  padding: 20px;
+  max-width: 320px;
+  text-align: left;
+  box-shadow: 0 0 15px rgba(200, 150, 255, 0.1);
+  transition: all 0.3s ease;
+}
+.book-card:hover {
+  box-shadow: 0 0 25px rgba(230, 180, 255, 0.4);
+  transform: translateY(-6px);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .book-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .book-grid { grid-template-columns: 1fr; }
+}
+
+/* Button */
+.home-btn {
+  background: linear-gradient(90deg, #8c52ff, #f4bfff);
+  color: #2b0048;
+  border: none;
+  border-radius: 25px;
+  padding: 12px 28px;
+  margin-top: 50px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+.home-btn:hover {
+  background: linear-gradient(90deg, #b57aff, #fff0ff);
+  transform: scale(1.05);
+}

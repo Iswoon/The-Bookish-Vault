@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>The Romance Vault 💞</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='romance.css') }}">
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Great+Vibes&family=Marcellus&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Door Animation -->
+  <div id="door">
+    <div class="door-left"></div>
+    <div class="door-right"></div>
+  </div>
+
+  <!-- Floating rose petals background -->
+  <div class="roses"></div>
+  <div class="roses2"></div>
+
+  <!-- Main Romance Vault Content -->
+  <div class="vault-container">
+    <div class="glow"></div>
+    <h1>💞 The Romance Vault 💞</h1>
+    <p class="intro">“Where hearts bloom like roses and every page aches with longing.”</p>
+
+    <div class="content">
+      <p>
+        Welcome, darling dreamer. Here, love burns slow and steady — or crashes like a storm.
+        Letters are written by candlelight, glances linger too long, and fate keeps pulling two souls together again and again.
+      </p>
+
+      <h2 class="rec-title">💌 The Book of Love Stories 💌</h2>
+      <div class="book-grid">
+
+        <div class="book-card">
+          <h3>Twisted Love</h3>
+          <p><strong>Author:</strong> Ana Huang</p>
+          <p>A brooding man with a frozen heart and the girl who melts it. The beginning of a dangerously addictive romance series.</p>
+        </div>
+
+        <div class="book-card">
+          <h3>Twisted Lies</h3>
+          <p><strong>Author:</strong> Ana Huang</p>
+          <p>Fake dating, real chemistry, and secrets that could destroy everything they’ve built. Deliciously slow-burn and intoxicating.</p>
+        </div>
+
+        <div class="book-card">
+          <h3>Love and Other Words</h3>
+          <p><strong>Author:</strong> Christina Lauren</p>
+          <p>A second-chance romance between childhood best friends who shared books, dreams, and one unforgettable heartbreak.</p>
+        </div>
+
+        <div class="book-card">
+          <h3>It Ends With Us</h3>
+          <p><strong>Author:</strong> Colleen Hoover</p>
+          <p>A powerful story about love, loss, and breaking cycles. Heart-wrenching yet empowering.</p>
+        </div>
+
+        <div class="book-card">
+          <h3>The Spanish Love Deception</h3>
+          <p><strong>Author:</strong> Elena Armas</p>
+          <p>A fake-date-turned-real-love story filled with slow-burn tension, hilarious moments, and undeniable chemistry.</p>
+        </div>
+
+        <div class="book-card">
+          <h3>Book Lovers</h3>
+          <p><strong>Author:</strong> Emily Henry</p>
+          <p>Enemies to lovers, small-town charm, and two people who finally learn what it means to choose love — and themselves.</p>
+        </div>
+
+      </div>
+
+      <a href="{{ url_for('homepage') }}" class="home-btn">Return to the Vault Entrance</a>
+
+    </div>
+  </div>
+
+  <audio autoplay loop>
+    <source src="sounds/romance-theme.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    window.addEventListener("load", () => {
+      const door = document.getElementById("door");
+
+      // Step 1: Open the door after 1 second
+      setTimeout(() => {
+        door.classList.add("open");
+      }, 1000);
+
+      // Step 2: Fade the door out once it's open
+      setTimeout(() => {
+        door.classList.add("fade-out");
+      }, 4000);
+    });
+  </script>
+</body>
+</html>

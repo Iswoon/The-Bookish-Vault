@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Lato&display=swap');
+
+/*Global styles */
+body {
+      margin: 0;
+      font-family: 'Cinzel', sans-serif;
+      background-color: #0b0d22;
+      color: #F5F5F5;
+    }
+    header {
+      text-align: center;
+      padding: 80px 20px;
+      background: linear-gradient(135deg, #0b0d22, #000a17);
+      position: relative;
+    }
+
+    header h1 {
+      font-family: 'Cinzel', serif;
+      font-size: 3rem;
+      color: #ffdb67;
+      text-shadow: 0 0 8px #877641;
+    }
+    header p {
+      font-size: 1.2rem;
+      margin-top: 10px;
+    }
+    .btn-primary {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 15px 30px;
+      background: #C0C0C0;
+      color: #0A1D37;
+      font-weight: bold;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .btn-primary:hover {
+      background: #f1f8fa;
+      color: #fff;
+      box-shadow: 0 0 15px #001f32;
+    }
+
+    /* Sections */
+    section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+    .steps {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+    }
+    .step {
+      width: 200px;
+      background: #142E54;
+      padding: 20px;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      border-radius: 10px;
+    }
+    .genres {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .genre-card {
+      width: 180px;
+      background: #142E54;
+      padding: 15px;
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .genre-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 15px #C0C0C0;
+    }
+.header {
+  text-align: center;
+  padding: 30px 0;
+  background-color: #0b0d22;
+  box-shadow: 0 4px 6px rgb(11, 12, 42);
+}
+
+.website-title {
+  font-family: 'Cinzel', serif;
+  font-size: 5rem;
+  z-index:10;
+  color: #c8aa6e;
+  letter-spacing: 2px;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+  from{
+    text-shadow: 0 0 10px #816d2d, 0 0 20px #d1ad38, 0 0 30px #b39a42,
+  0 0 40px #e8c751, 0 0 50px #ffdb67, 0 0 60px #ffdb67, 0 0 70px #ffeeee;
+  }
+  to {
+    text-shadow: 0 0 20px #d1ad38, 0 0 30px #e8c751,
+  0 0 40px #73662c, 0 0 50px #8e7c3c, 0 0 60px #957d40, 0 0 70px #ffeeee, 0 0 80px #ff4da6;
+  }
+}
+
+/* Star layer */
+.stars {
+  width: 2px;
+  height: 2px;
+  background: white;
+  box-shadow:
+    100px 200px white,
+    300px 100px white,
+    500px 150px white,
+    700px 300px white,
+    900px 50px white,
+    1100px 250px white,
+    1300px 180px white;
+  animation: twinkle 2s infinite alternate;
+  position: fixed;
+  pointer-events: none;
+
+}
+
+@keyframes twinkle {
+  0% { opacity: 1; }
+  100% { opacity: 0.3; }
+}
+
+.stars2 {
+  width: 3px;
+  height: 3px;
+  background: #c8aa6e; /* gold-toned star for Ravenclaw vibes */
+  box-shadow:
+    150px 80px #c8aa6e,
+    400px 220px #c8aa6e,
+    800px 100px #c8aa6e,
+    1200px 300px #c8aa6e;
+  animation: twinkle 3s infinite alternate;
+  position: fixed;
+  pointer-events: none;
+
+}
+/* Moon layer */
+
+.moon {
+  position: absolute;
+  z-index:0;
+  top: 20%;
+  left: -100px; /* start off-screen to the left */
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle, rgb(197, 197, 197), #ffffff); /* pale moon color */
+  border-radius: 50%; /* makes it a perfect circle */
+  box-shadow: 0 0 20px #fff, 0 0 40px #dad8d8, 0 0 60px #f4f1f1; /* glow effect */
+  animation: driftMoonArc 100s linear infinite; /* make it move */
+}
+@keyframes driftMoonArc {
+  0% { transform: translate(0,50px); }
+  25% { transform: translate(30vw,-50px); }/*rising*/
+  50% {transform: translate(60vw, -100px);}/*peak*/
+  75%{transform:  translate(90vw, -50px);} /*setting*/
+  100%{transform: translate(120vw, 50px);}/*disappears*/
+}

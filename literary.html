@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>The Literary Vault 📚</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='literary.css') }}">
+
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Marcellus&family=Playfair+Display:ital,wght@0,400;1,600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Door Animation -->
+  <div id="door">
+    <div class="door-left"></div>
+    <div class="door-right"></div>
+  </div>
+
+  <!-- Gentle Paper Glow -->
+  <div class="paper-glow"></div>
+
+  <!-- Main Literary Vault Content -->
+  <div class="vault-container">
+    <h1>📚 The Literary Vault </h1>
+    <p class="intro">“Here, words aren’t just written — they live, breathe, and ache.”</p>
+
+    <div class="content">
+      <p>
+        Welcome, reader. This is a sanctuary for stories that linger —
+        the ones that carve truth from ordinary lives and find poetry in imperfection.
+      </p>
+
+      <h2 class="rec-title">🕮 The Shelf of Stories 🕮</h2>
+      <div class="book-grid">
+
+        <div class="book-card">
+          <h3>Lessons in Chemistry</h3>
+          <p><strong>Author:</strong> Bonnie Garmus</p>
+          <p>A fiercely intelligent chemist in the 1960s challenges every rule in a world determined to underestimate her.</p>
+        </div>
+
+        <div class="book-card">
+          <h3>The Joy Luck Club</h3>
+          <p><strong>Author:</strong> Amy Tan</p>
+          <p>Four Chinese-American mothers and their daughters explore identity, heritage, and the bonds of love and sacrifice.</p>
+        </div>
+
+        <div class="book-card">
+          <h3>A Little Life</h3>
+          <p><strong>Author:</strong> Hanya Yanagihara</p>
+          <p>A haunting exploration of friendship, trauma, and endurance — devastatingly beautiful and utterly unforgettable.</p>
+        </div>
+
+        <div class="book-card">
+          <h3>Klara and the Sun</h3>
+          <p><strong>Author:</strong> Kazuo Ishiguro</p>
+          <p>Through the eyes of an artificial friend, we see humanity, loneliness, and the fragile hope of love.</p>
+        </div>
+
+        <div class="book-card">
+          <h3>Tomorrow, and Tomorrow, and Tomorrow</h3>
+          <p><strong>Author:</strong> Gabrielle Zevin</p>
+          <p>A story of friendship, creativity, and connection — as two game designers chase meaning and art in a digital world.</p>
+        </div>
+
+        <div class="book-card">
+          <h3>Beautiful World, Where Are You</h3>
+          <p><strong>Author:</strong> Sally Rooney</p>
+          <p>Conversations about art, faith, love, and the strange, fragile act of being human in a modern world.</p>
+        </div>
+
+      </div>
+
+     <a href="{{ url_for('homepage') }}" class="home-btn">Return to the Vault Entrance</a>
+
+    </div>
+  </div>
+
+  <audio autoplay loop>
+    <source src="sounds/literary-theme.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    window.addEventListener("load", () => {
+      const door = document.getElementById("door");
+      setTimeout(() => door.classList.add("open"), 1000);
+      setTimeout(() => door.classList.add("fade-out"), 4000);
+    });
+  </script>
+</body>
+</html>

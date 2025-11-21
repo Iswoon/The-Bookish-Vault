@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>The Dream Vault ✨</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='magicalrealism.css') }}">
+
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cormorant+Garamond:wght@400;600&family=Marcellus&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Door Animation -->
+  <div id="door">
+    <div class="door-left"></div>
+    <div class="door-right"></div>
+  </div>
+
+  <!-- Star background -->
+  <div class="stars"></div>
+  <div class="stars2"></div>
+
+  <!-- Main Content -->
+  <div class="vault-container">
+    <div class="glow"></div>
+    <h1>🌙 The Dream Vault 🌙</h1>
+    <p class="intro">“Reality hums beneath enchantment; ordinary lives shimmer with the impossible.”</p>
+
+    <div class="content">
+      <p>
+        Welcome, dreamer. Within these pages, the mundane waltzes with miracles. Here, ghosts pour tea,
+        memories rewrite themselves, and time folds like silk. You have entered the realm where wonder
+        hides in plain sight.
+      </p>
+
+      <h2 class="rec-title">✧ The Arcane Shelf ✧</h2>
+
+      <div class="book-grid">
+        <div class="book-card">
+          <h3>One Hundred Years of Solitude</h3>
+          <p><strong>Author:</strong> Gabriel García Márquez</p>
+          <p>
+            In the town of Macondo, generations of the Buendía family spiral through love, war, and prophecy—
+            where time bends and ghosts refuse to fade.
+          </p>
+        </div>
+
+        <div class="book-card">
+          <h3>The House of the Spirits</h3>
+          <p><strong>Author:</strong> Isabel Allende</p>
+          <p>
+            Spanning generations, the Trueba family’s story merges political upheaval with clairvoyant whispers
+            and love that defies death.
+          </p>
+        </div>
+
+        <div class="book-card">
+          <h3>Kafka on the Shore</h3>
+          <p><strong>Author:</strong> Haruki Murakami</p>
+          <p>
+            Talking cats, raining fish, and parallel worlds weave through a tale of destiny and consciousness.
+          </p>
+        </div>
+
+        <div class="book-card">
+          <h3>Midnight’s Children</h3>
+          <p><strong>Author:</strong> Salman Rushdie</p>
+          <p>
+            Born at the moment of India’s independence, Saleem Sinai’s life is tied to the nation’s destiny—
+            and to other children gifted with strange powers.
+          </p>
+        </div>
+
+        <div class="book-card">
+          <h3>The Ocean at the End of the Lane</h3>
+          <p><strong>Author:</strong> Neil Gaiman</p>
+          <p>
+            A man revisits his childhood home to recall a forgotten past of witches, hunger birds, and a
+            girl who defied the void.
+          </p>
+        </div>
+
+        <div class="book-card">
+          <h3>Like Water for Chocolate</h3>
+          <p><strong>Author:</strong> Laura Esquivel</p>
+          <p>
+            A young woman’s emotions infuse her cooking—turning heartbreak and passion into dishes that
+            literally enchant those who taste them.
+          </p>
+        </div>
+      </div>
+
+      <a href="{{ url_for('homepage') }}" class="home-btn">Return to the Vault Entrance</a>
+
+    </div>
+  </div>
+
+  <audio autoplay loop>
+    <source src="sounds/magic-theme.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    window.addEventListener("load", () => {
+      const door = document.getElementById("door");
+      setTimeout(() => door.classList.add("open"), 1000);
+      setTimeout(() => door.classList.add("fade-out"), 4000);
+    });
+  </script>
+</body>
+</html>

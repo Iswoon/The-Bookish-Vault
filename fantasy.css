@@ -1,0 +1,248 @@
+/* ---------- General Atmosphere ---------- */
+@import url('https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap');
+
+
+
+
+body {
+  margin: 0;
+  font-family: 'Cormorant Garamond', serif;
+  color: #f3f1ff;
+  background: radial-gradient(ellipse at bottom, #0b0c1a 0%, #000000 100%);
+  overflow-x: hidden;
+  height: 100vh;
+}
+
+
+h1, .rec-title {
+  font-family: 'Uncial Antiqua', cursive;
+  letter-spacing: 2px;
+}
+
+.intro, .content p, .book-card h3 {
+  font-family: 'Cormorant Garamond', serif;
+}
+
+/* ---------- Magical Door Animation ---------- */
+#door {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  z-index: 999;
+}
+
+.door-left, .door-right {
+  width: 50%;
+  height: 100%;
+  background: #1a1a2e;
+  box-shadow: inset 0 0 30px #5c77ff;
+  transition: transform 3s ease-in-out;
+}
+
+#door.open .door-left {
+  transform: translateX(-100%);
+}
+#door.open .door-right {
+  transform: translateX(100%);
+}
+
+/* ---------- Vault Content ---------- */
+.vault-container {
+  text-align: center;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 20px;
+  animation: fadeIn 3s ease 3s forwards;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+h1 {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 3em;
+  letter-spacing: 2px;
+  text-shadow: 0 0 15px #bcbcff, 0 0 30px #5c77ff;
+  animation: shimmer 3s infinite alternate;
+}
+
+@keyframes shimmer {
+  from { text-shadow: 0 0 10px #bcbcff, 0 0 20px #5c77ff; }
+  to { text-shadow: 0 0 20px #c1a9ff, 0 0 40px #c0afff; }
+}
+
+.intro {
+  font-style: italic;
+  color: #d8d5ff;
+}
+
+.content p {
+  font-size: 1.2em;
+  max-width: 700px;
+  margin: 20px auto;
+  line-height: 1.6;
+}
+
+/* ---------- Book Recommendations ---------- */
+.rec-title {
+  margin-top: 40px;
+  font-size: 2em;
+  font-family: 'Cinzel Decorative', serif;
+  color: #c7c2ff;
+  text-shadow: 0 0 10px #7b68ee;
+}
+
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  max-width: 900px;
+  margin: 30px auto;
+}
+
+.book-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  padding: 15px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.book-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(160, 140, 255, 0.4);
+}
+
+.book-card h3 {
+  margin-bottom: 10px;
+  color: #dcd4ff;
+  font-family: 'Cinzel', serif;
+}
+
+/* ---------- Button ---------- */
+.home-btn {
+  margin-top: 20px;
+  padding: 12px 25px;
+  background: linear-gradient(90deg, #3f2b96, #a8c0ff);
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-family: 'Cinzel', serif;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.3s;
+}
+
+.home-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #a8c0ff;
+}
+
+/* ---------- Magical Glow ---------- */
+.glow {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(95, 106, 255, 0.2) 0%, transparent 70%);
+  animation: pulse 6s infinite;
+  z-index: -1;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.1); }
+  100% { opacity: 0.4; transform: scale(1); }
+}
+
+
+.book-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  padding: 15px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  overflow: hidden;
+}
+
+/* cover image on hover */
+.book-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 0;
+}
+
+/* Give each card its own background */
+.book-card:nth-child(1)::before {
+  background-image: url('https://m.media-amazon.com/images/I/71FSX7v+GZL._AC_UF1000,1000_QL80_.jpg');
+}
+.book-card:nth-child(2)::before {
+  background-image: url('https://m.media-amazon.com/images/I/81Hq3tL5QXL._AC_UF1000,1000_QL80_.jpg');
+}
+.book-card:nth-child(3)::before {
+  background-image: url('https://m.media-amazon.com/images/I/81vpsIs58WL._AC_UF1000,1000_QL80_.jpg');
+}
+.book-card:nth-child(4)::before {
+  background-image: url('https://m.media-amazon.com/images/I/91+8fO6qfxL._AC_UF1000,1000_QL80_.jpg');
+}
+
+.book-card:hover::before {
+  opacity: 0.25;
+}
+
+.book-card * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Star layer */
+.stars {
+  width: 2px;
+  height: 2px;
+  background: white;
+  box-shadow:
+    100px 200px white,
+    300px 100px white,
+    500px 150px white,
+    700px 300px white,
+    900px 50px white,
+    1100px 250px white,
+    1300px 180px white;
+  animation: twinkle 2s infinite alternate;
+  position: fixed;
+  pointer-events: none;
+
+}
+
+@keyframes twinkle {
+  0% { opacity: 1; }
+  100% { opacity: 0.3; }
+}
+
+.stars2 {
+  width: 3px;
+  height: 3px;
+  background: #c8aa6e; /* gold-toned star for Ravenclaw vibes */
+  box-shadow:
+    150px 80px #c8aa6e,
+    400px 220px #c8aa6e,
+    800px 100px #c8aa6e,
+    1200px 300px #c8aa6e;
+  animation: twinkle 3s infinite alternate;
+  position: fixed;
+  pointer-events: none;
+
+}

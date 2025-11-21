@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>The Enigma Vault</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='mystery.css') }}">
+
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cinzel+Decorative:wght@700&family=Marcellus&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Door Animation -->
+  <div id="door">
+    <div class="door-left"></div>
+    <div class="door-right"></div>
+  </div>
+
+  <!-- Header section -->
+<div class="stars"></div>
+<div class="stars2"></div>
+
+  <!-- Main Fantasy Vault Content -->
+  <div class="vault-container">
+    <div class="glow"></div>
+    <h1> 🔍 The Enigma Vault 🔍</h1>
+    <p class="intro">““Beyond this door lies a realm where shadows murmur secrets and enigmas coil in the dark.””</p>
+
+    <div class="content">
+      <p>
+         Welcome, sleuth. Here, clues lurk in fog-veiled archives, riddles echo through shadowed halls, and intuition cuts sharper than any blade. You were born to unravel the veiled unknown.
+      </p>
+
+      <h2 class="rec-title">₰ The Codex of Clues ₰ </h2>
+      <div class="book-grid">
+
+  <div class="book-card">
+    <h3>The Hound of the Baskervilles</h3>
+    <p><strong>Author:</strong>Arthur Conan Doyle</p>
+    <p>
+        A spectral curse on the moors, where Sherlock Holmes tracks a beast born of legend and fear.
+    </p>
+  </div>
+
+  <div class="book-card">
+    <h3>
+        And Then There Were None
+    </h3>
+    <p><strong>Author:</strong>
+        Agatha Christie
+    </p>
+    <p>
+        Ten strangers lured to an island, where justice arrives as a nursery rhyme—and death counts down.
+    </p>
+</div>
+
+  <div class="book-card">
+    <h3>The Maltese Falcon</h3>
+    <p><strong>Author:</strong>
+        Dashiell Hammett
+    </p>
+    <p>
+        A tarnished statue of a bird, double-crosses in smoke-filled rooms, and a detective who trusts no one.
+    </p>
+</div>
+
+  <div class="book-card">
+    <h3>The Big Sleep</h3>
+    <p><strong>Author:</strong>Raymond Chandler</p>
+    <p>
+        Blackmail, blackmail, and more blackmail in rain-slicked Los Angeles, as Philip Marlowe navigates a web of vice.
+    </p>
+  </div>
+    <div class="book-card">
+  <h3>Gone Girl</h3>
+  <p><strong>Author:</strong> Gillian Flynn</p>
+  <p>
+    A wife's disappearance spirals into a media frenzy of lies, diaries, and a marriage's rotting core.
+</p>
+</div>
+
+<div class="book-card">
+  <h3>The Silent Patient</h3>
+  <p><strong>Author:</strong> Alex Michaelides</p>
+  <p>
+    A famous painter shoots her husband and vows silence—until a psychotherapist unlocks the unspoken horror.
+</p>
+</div>
+
+
+</div>
+
+
+      <a href="{{ url_for('homepage') }}" class="home-btn">Return to the Vault Entrance</a>
+
+    </div>
+  </div>
+
+  <audio autoplay loop>
+    <source src="sounds/fantasy-theme.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+window.addEventListener("load", () => {
+  const door = document.getElementById("door");
+
+  // Step 1: Open the door after 1 second
+  setTimeout(() => {
+    door.classList.add("open");
+  }, 1000);
+
+  // Step 2: Fade the door out once it's open
+  setTimeout(() => {
+    door.classList.add("fade-out");
+  }, 4000); // a bit longer so it fades after opening
+});
+</script>
+
+</body>
+</html>

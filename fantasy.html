@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>The Fantasy Vault ✨</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='fantasy.css') }}">chrome
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cinzel+Decorative:wght@700&family=Marcellus&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Door Animation -->
+  <div id="door">
+    <div class="door-left"></div>
+    <div class="door-right"></div>
+  </div>
+
+  <!-- Header section -->
+<div class="stars"></div>
+<div class="stars2"></div>
+
+  <!-- Main Fantasy Vault Content -->
+  <div class="vault-container">
+    <div class="glow"></div>
+    <h1>✨ The Fantasy Vault ✨</h1>
+    <p class="intro">“Beyond this door lies a realm where the stars whisper and destiny stirs.”</p>
+
+    <div class="content">
+      <p>
+        Welcome, dreamer. Here, dragons guard ancient libraries, prophecies hum in forgotten tongues,
+        and courage blazes brighter than magic. You were born to wander realms untold.
+      </p>
+
+      <h2 class="rec-title">₰ The Tome of Recommendations ₰ </h2>
+      <div class="book-grid">
+
+  <div class="book-card">
+    <h3>The Name of the Wind</h3>
+    <p><strong>Author:</strong> Patrick Rothfuss</p>
+    <p>A lyrical tale of magic, music, and myth — the life of Kvothe, told in his own voice.</p>
+  </div>
+
+  <div class="book-card">
+    <h3>A Darker Shade of Magic</h3>
+    <p><strong>Author:</strong> V.E. Schwab</p>
+    <p>Parallel Londons, dangerous magic, and a coat with many worlds sewn into its folds.</p>
+  </div>
+
+  <div class="book-card">
+    <h3>Mistborn</h3>
+    <p><strong>Author:</strong> Brandon Sanderson</p>
+    <p>A world ruled by ash and an immortal tyrant, where rebellion burns in secret.</p>
+  </div>
+
+  <div class="book-card">
+    <h3>Uprooted</h3>
+    <p><strong>Author:</strong> Naomi Novik</p>
+    <p>A lush, fairy-tale-infused fantasy about a quiet village, an ancient forest,
+      and a reluctant girl chosen by a reclusive wizard known as <em>the Dragon</em>.</p>
+  </div>
+        <div class="book-card">
+  <h3>The Priory of the Orange Tree</h3>
+  <p><strong>Author:</strong> Samantha Shannon</p>
+  <p>
+    A sweeping epic of dragons, queens, and ancient prophecies.
+    A world divided must unite or fall to shadow and fire.
+  </p>
+</div>
+
+<div class="book-card">
+  <h3>The Stardust Thief</h3>
+  <p><strong>Author:</strong> Chelsea Abdullah</p>
+  <p>
+    A tale inspired by <em>One Thousand and One Nights</em> — full of djinn, desert magic,
+    and stories that twist like smoke under starlight.
+  </p>
+</div>
+
+
+</div>
+
+
+      <a href="{{ url_for('homepage') }}" class="home-btn">Return to the Vault Entrance</a>
+
+    </div>
+  </div>
+
+  <audio autoplay loop>
+    <source src="sounds/fantasy-theme.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+window.addEventListener("load", () => {
+  const door = document.getElementById("door");
+
+  // Step 1: Open the door after 1 second
+  setTimeout(() => {
+    door.classList.add("open");
+  }, 1000);
+
+  // Step 2: Fade the door out once it's open
+  setTimeout(() => {
+    door.classList.add("fade-out");
+  }, 4000); // a bit longer so it fades after opening
+});
+</script>
+
+</body>
+</html>

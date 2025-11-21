@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>The Sci-Fi Vault 🚀</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='scifi.css') }}">
+
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&family=Marcellus&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Door Animation -->
+  <div id="door">
+    <div class="door-left"></div>
+    <div class="door-right"></div>
+  </div>
+
+  <!-- Header section -->
+  <div class="stars"></div>
+  <div class="stars2"></div>
+
+  <!-- Main Sci-Fi Vault Content -->
+  <div class="vault-container">
+    <div class="glow"></div>
+    <h1>🚀 The Sci-Fi Vault 🚀</h1>
+    <p class="intro">
+      “Beyond this portal, time fractures, machines dream, and galaxies whisper of civilizations yet unborn.”
+    </p>
+
+    <div class="content">
+      <p>
+        Welcome, explorer. You stand at the threshold of the infinite — a realm where technology blurs with prophecy, and humanity wrestles with its own creations among the stars.
+      </p>
+
+      <h2 class="rec-title">⚙ The Codex of the Cosmos ⚙</h2>
+
+      <div class="book-grid">
+        <div class="book-card">
+          <h3>Dune</h3>
+          <p><strong>Author:</strong> Frank Herbert</p>
+          <p>
+            On the desert planet Arrakis, spice governs destiny — and a young noble’s rise challenges empires and prophecy alike.
+          </p>
+        </div>
+
+        <div class="book-card">
+          <h3>Neuromancer</h3>
+          <p><strong>Author:</strong> William Gibson</p>
+          <p>
+            A washed-up hacker dives into cyberspace conspiracies, where AIs and megacorps blur the line between man and machine.
+          </p>
+        </div>
+
+        <div class="book-card">
+          <h3>Foundation</h3>
+          <p><strong>Author:</strong> Isaac Asimov</p>
+          <p>
+            As a galactic empire decays, one man’s science of prediction — psychohistory — sparks a plan to preserve civilization.
+          </p>
+        </div>
+
+        <div class="book-card">
+          <h3>Snow Crash</h3>
+          <p><strong>Author:</strong> Neal Stephenson</p>
+          <p>
+            A samurai-sword-wielding hacker and a skateboard courier uncover a digital plague threatening the metaverse.
+          </p>
+        </div>
+
+        <div class="book-card">
+          <h3>The Martian</h3>
+          <p><strong>Author:</strong> Andy Weir</p>
+          <p>
+            Stranded on Mars, an astronaut must science his way through starvation, storms, and solitude to survive.
+          </p>
+        </div>
+
+        <div class="book-card">
+          <h3>Project Hail Mary</h3>
+          <p><strong>Author:</strong> Andy Weir</p>
+          <p>
+            Alone on a spaceship light-years from Earth, one man awakens with no memory — and humanity’s fate on his shoulders.
+          </p>
+        </div>
+      </div>
+
+      <a href="{{ url_for('homepage') }}" class="home-btn">Return to the Vault Entrance</a>
+
+    </div>
+  </div>
+
+  <audio autoplay loop>
+    <source src="sounds/scifi-theme.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    window.addEventListener("load", () => {
+      const door = document.getElementById("door");
+
+      // Step 1: Open the door after 1 second
+      setTimeout(() => {
+        door.classList.add("open");
+      }, 1000);
+
+      // Step 2: Fade the door out once it's open
+      setTimeout(() => {
+        door.classList.add("fade-out");
+      }, 4000);
+    });
+  </script>
+</body>
+</html>

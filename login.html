@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login - The Bookish Vault</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='loginsign.css') }}">
+</head>
+<body>
+<!-- Header section -->
+<div class="moon"></div>
+<div class="stars"></div>
+<div class="stars2"></div>
+
+<div class="header">
+  <div class="center-section">
+    <h1 class="website-title">The Bookish Vault</h1>
+  </div>
+</div>
+
+<!-- Login box -->
+<div class="stars"></div>
+<div class="stars2"></div>
+
+<div class="typewriter">To enter the Vault, you must first know yourself.</div>
+
+
+<main class="login-main">
+  <div class="login-box">
+    <h2>Login</h2>
+    <form method="POST" action="{{ url_for('login') }}">
+            <input type="email" name="email" placeholder="Email address" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit">Submit</button>
+    </form>
+      <p>Don't have an account? <a href="{{ url_for('signup') }}">Sign up here</a></p>
+  </div>
+</main>
+
+
+</body>
+</html>

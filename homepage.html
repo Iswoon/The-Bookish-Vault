@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Home- The Bookish Vault</title>
+  <link href="{{ url_for('static', filename='homepage.css') }}" rel="stylesheet">
+</head>
+<body>
+
+<!-- Header section -->
+<div class="moon"></div>
+<div class="stars"></div>
+<div class="stars2"></div>
+
+<div class="header">
+  <div class="center-section">
+    <h1 class="website-title">The Bookish Vault</h1>
+  </div>
+</div>
+
+
+<section>
+<header>
+  <h2>✨How It Works✨</h2>
+  <center>
+  <div  class="step">§.Take the Quiz</div>
+  <div  class="step">◊.Discover Your Genre</div>
+  <div  class="step">§.Get recommendations</div>
+  </center>
+</header>
+</section>
+
+<section>
+ <h2>Explore Genres</h2>
+  <center>
+  <div class="genre-card">Fantasy⚔️</div>
+  <div class="genre-card">Romance💗</div>
+  <div class="genre-card">Mystery 🔎</div>
+  <div class="genre-card">Sci-Fi 👽</div>
+  </center>
+</section>
+
+<section>
+  <h2>About The Bookish Vault</h2>
+  <p>The Bookish Vault was created for the readers who believe every story is a key to a new world. Your perfect book is just a quiz away!</p>
+</section>
+
+<section>
+  <h2>Ready to Unlock Your Next Adventure?</h2>
+  <a href="{{ url_for('quiz') }}" class="btn-primary">Start the Quiz</a>
+</section>
+
+<footer>
+  <center>
+   <p>&copy; 2025 The Bookish Vault | Follow us on Instagram & Twitter</p>
+    </center>
+</footer>
+</body>
+</html>

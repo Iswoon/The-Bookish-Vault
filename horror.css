@@ -1,0 +1,161 @@
+body {
+  margin: 0;
+  font-family: 'Spectral SC', serif;
+  color: #f0e0dc;
+  background: radial-gradient(ellipse at top, #150000, #000000 75%);
+  overflow-x: hidden;
+}
+
+/* === Door Animation === */
+#door {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  z-index: 10;
+  transition: opacity 2s ease;
+}
+
+.door-left, .door-right {
+  flex: 1;
+  background: linear-gradient(to right, #3a0000, #1a0000);
+  transition: transform 2s ease-in-out;
+  box-shadow: inset 0 0 30px #ff0000;
+}
+
+#door.open .door-left { transform: translateX(-100%); }
+#door.open .door-right { transform: translateX(100%); }
+#door.fade-out { opacity: 0; pointer-events: none; }
+
+/* === Flickering Red Glow (Stars Replacement) === */
+.stars, .stars2 {
+  position: absolute;
+  width: 2px; height: 2px;
+  background: crimson;
+  box-shadow: 200px 300px crimson, 400px 500px darkred, 600px 200px red, 800px 700px #ff4444, 1000px 100px #aa0000;
+  animation: flicker 4s infinite ease-in-out alternate;
+  opacity: 0.7;
+}
+@keyframes flicker {
+  0%, 100% { opacity: 0.3; filter: blur(0.5px); }
+  50% { opacity: 1; filter: blur(1px); }
+}
+
+/* === Container === */
+.vault-container {
+  position: relative;
+  padding: 80px 20px;
+  text-align: center;
+  z-index: 1;
+}
+
+.glow {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: radial-gradient(circle at center, rgba(255, 0, 0, 0.08), transparent 80%);
+  z-index: -1;
+}
+
+/* === Titles === */
+h1 {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 3rem;
+  letter-spacing: 2px;
+  text-shadow: 0 0 15px #ff0000, 0 0 25px #660000;
+  color: #ff4444;
+}
+
+.intro {
+  font-style: italic;
+  color: #f3d1cf;
+  margin-bottom: 40px;
+  font-size: 1.1rem;
+  text-shadow: 0 0 10px rgba(255, 0, 0, 0.4);
+}
+
+/* === Book Grid === */
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  justify-items: center;
+  max-width: 1100px;
+  margin: 40px auto;
+}
+
+.book-card {
+  background: rgba(50, 0, 0, 0.2);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(200, 0, 0, 0.3);
+  border-radius: 12px;
+  padding: 20px;
+  max-width: 320px;
+  text-align: left;
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.08);
+  transition: box-shadow 0.4s ease, transform 0.4s ease;
+}
+.book-card:hover {
+  box-shadow: 0 0 25px rgba(255, 0, 0, 0.6);
+  transform: translateY(-6px);
+}
+
+/* === Responsive === */
+@media (max-width: 900px) {
+  .book-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .book-grid { grid-template-columns: 1fr; }
+}
+
+/* === Button === */
+.home-btn {
+  background: linear-gradient(90deg, #440000, #800000);
+  color: #fff0f0;
+  border: none;
+  border-radius: 25px;
+  padding: 12px 28px;
+  margin-top: 50px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+}
+.home-btn:hover {
+  background: linear-gradient(90deg, #660000, #ff0000);
+  box-shadow: 0 0 25px rgba(255, 0, 0, 0.8);
+  transform: scale(1.05);
+}
+
+/* Candle Flicker Glow */
+@keyframes flicker {
+  0% { text-shadow: 0 0 6px #ff0000, 0 0 15px #ff3b3b; }
+  50% { text-shadow: 0 0 3px #ff1a1a, 0 0 8px #ff0000; }
+  100% { text-shadow: 0 0 10px #b30000, 0 0 20px #ff0000; }
+}
+
+/* Vault Container */
+.vault-container {
+  text-align: center;
+  padding: 60px 15px;
+  backdrop-filter: brightness(80%) blur(2px);
+}
+
+h1 {
+  font-size: 3em;
+  color: #ff4d4d;
+  animation: flicker 2s infinite;
+  letter-spacing: 2px;
+}
+
+.intro {
+  font-style: italic;
+  color: #a8a8a8;
+  margin-bottom: 25px;
+}
+
+p {
+  line-height: 1.6;
+  color: #dcdcdc;
+}

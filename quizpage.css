@@ -1,0 +1,158 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Lato&display=swap");
+body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Lato', sans-serif;
+      background-color: #020f22;
+      color: #F5F5F5;
+    }
+
+    header {
+      text-align: center;
+      padding: 30px;
+      font-family: 'Cinzel', serif;
+      font-size: 2rem;
+      color: #ffdb67;
+      text-shadow: 0 0 10px #ffdb67;
+    }
+
+    .quiz-container {
+      max-width: 800px;
+      margin: 50px auto;
+      background: #d1cdc9;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgb(255, 255, 255);
+    }
+
+    .progress {
+      text-align: right;
+      font-size: 1rem;
+      margin-bottom: 15px;
+      color: #ffffff;
+    }
+
+    .question {
+      font-size: 1.8rem;
+      font-weight: bold;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .option-card {
+      background: #e3e1e1;
+      color: #0A1D37;
+      padding: 20px;
+      border-radius: 10px;
+      width: 40%;
+      cursor: pointer;
+      text-align: center;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .option-card:hover {
+      background: #001f32;
+      color: #fff;
+      transform: scale(1.05);
+      box-shadow: 0 0 15px #fff9f9;
+    }
+
+    #next-btn {
+      display: block;
+      margin: 30px auto;
+      padding: 15px 30px;
+      background: #C0C0C0;
+      color: #4e6d98;
+      border-radius: 10px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    #next-btn:hover {
+      background: #526f8a;
+      color: #fff;
+      box-shadow: 0 0 15px #001f32;
+    }
+
+    /* Vault Reveal Section */
+    #vault {
+      display: none; /* Hidden for now */
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: #0A1D37;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .vault-door {
+      width: 200px; height: 200px;
+      background: radial-gradient(circle, #142E54, #0A1D37);
+      border: 5px solid #C0C0C0;
+      border-radius: 50%;
+      box-shadow: 0 0 40px rgba(192,192,192,0.6);
+      margin-bottom: 20px;
+    }
+
+    .vault-result {
+      font-size: 2rem;
+      font-family: 'Cinzel', serif;
+      color: #C0C0C0;
+      text-align: center;
+    }
+
+    /* Magical Vault Reveal */
+#vault {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: radial-gradient(circle at center, #0a1d37, #000);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.vault-door {
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, #142E54, #0A1D37);
+  border: 10px solid #C0C0C0;
+  border-radius: 50%;
+  box-shadow: 0 0 40px rgba(192,192,192,0.8);
+  animation: spin 4s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.vault-result {
+  font-size: 2.5rem;
+  font-family: 'Cinzel', serif;
+  color: #ffdb67;
+  text-shadow: 0 0 15px #ffdb67;
+  margin-top: 30px;
+  opacity: 0;
+  animation: fadeIn 3s forwards 3s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>The Haunted Library</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='horror.css') }}">
+
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Spectral+SC:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Door Animation -->
+  <div id="door">
+    <div class="door-left"></div>
+    <div class="door-right"></div>
+  </div>
+
+   <div class="vault-container">
+  <h1>🕯️ The Horror Vault 🕯️</h1>
+  <p class="intro">“Enter if you dare — once you open the door, it never truly closes.”</p>
+
+  <div class="content">
+    <p>
+      Welcome, wanderer. Here, the air hums with dread and forgotten names echo through the dark.
+      Books bleed secrets, candles weep wax like tears, and shadows whisper stories that should have stayed untold.
+    </p>
+
+
+  <!-- Background and Main Container -->
+  <div class="mist"></div>
+  <div class="vault-container">
+    <div class="glow"></div>
+    <h1> ☠️ The Haunted Library ☠️ </h1>
+    <p class="intro">“Whispers of the damned echo through the corridors… dare you open the next page?”</p>
+
+    <div class="content">
+      <p>
+        Beneath the dim candlelight, these books bleed fear and fascination. Every page turns with a creak, every word breathes in the dark. Enter… if you must.
+      </p>
+
+      <h2 class="rec-title">🕯 The Forbidden Collection 🕯</h2>
+
+      <div class="book-grid">
+        <div class="book-card">
+          <h3>Dracula</h3>
+          <p><strong>Author:</strong> Bram Stoker</p>
+          <p>A gothic nightmare of immortality, blood, and the shadows that haunt human desire.</p>
+        </div>
+
+        <div class="book-card">
+          <h3>Frankenstein</h3>
+          <p><strong>Author:</strong> Mary Shelley</p>
+          <p>Life defied, creation betrayed — a tragic birth of monster and man alike.</p>
+        </div>
+
+        <div class="book-card">
+          <h3>The Shining</h3>
+          <p><strong>Author:</strong> Stephen King</p>
+          <p>The Overlook Hotel watches. It remembers. And it never lets you leave.</p>
+        </div>
+
+        <div class="book-card">
+          <h3>House of Leaves</h3>
+          <p><strong>Author:</strong> Mark Z. Danielewski</p>
+          <p>A house larger inside than outside, and a story that unravels sanity itself.</p>
+        </div>
+
+        <div class="book-card">
+          <h3>Bird Box</h3>
+          <p><strong>Author:</strong> Josh Malerman</p>
+          <p>Don’t look. Don’t breathe. Something unseen hunts those who dare to see.</p>
+        </div>
+
+        <div class="book-card">
+          <h3>The Call of Cthulhu</h3>
+          <p><strong>Author:</strong> H.P. Lovecraft</p>
+          <p>Ancient horrors awaken beneath the sea, whispering madness into mortal minds.</p>
+        </div>
+      </div>
+
+     <a href="{{ url_for('homepage') }}" class="home-btn">Return to the Vault Entrance</a>
+
+    </div>
+  </div>
+
+  <audio autoplay loop>
+    <source src="sounds/horror-theme.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+  window.addEventListener("load", () => {
+    const door = document.getElementById("door");
+    setTimeout(() => door.classList.add("open"), 1000);
+    setTimeout(() => door.classList.add("fade-out"), 4000);
+  });
+  </script>
+</body>
+</html>
